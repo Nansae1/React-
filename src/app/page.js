@@ -29,40 +29,56 @@ import { useState } from "react";
 //   );
 // }
 
-// export default function Home() {
-//   const [number, setNumber] = useState(43);
-//   const changeCount = () => {
-//     setNumber(30);
-//   };
+export default function Home() {
+  const [number, setNumber] = useState(Math.floor(Math.random() * 40000));
 
+  const [number1, setNumber1] = useState(Math.floor(Math.random() * 40000));
+
+  const [result, setResult] = useState(null);
+
+  const changeCount = () => {
+    setResult(number * number1);
+  };
+
+  return (
+    <div className="flex gap-5 h-screen w-screen justify-center items-center">
+      <div>{number}</div>
+      <div>*</div>
+      <div>{number1}</div>
+      <div>=</div>
+      <div>{result}</div>
+      <button onClick={changeCount}>See the answer!</button>
+    </div>
+  );
+}
+
+// export default function Home () {
 //   const [color, setColor] = useState("orange");
 //   const changeColor = () => {
 //     setColor("red");
 //   };
-
 //   return (
-//     <div className="flex gap-5 h-screen w-screen justify-center items-center">
-//       <div>45-15={number}</div>
-//       <button onClick={changeCount}>See right answer!</button>
-
+//     <>
 //       <div>My favorite color is {color}</div>
 //       <button onClick={changeColor}>Click me!</button>
+//     </>
+//   )
+// }
+
+// export default function Home() {
+//   function calculateSum() {}
+//   return (
+//     <div className="flex gap-40 h-screen w-screen justify-center items-center">
+//       <div className="flex  ">
+//         <input type="number" placeholder="enter first number"></input>
+//         <div>+</div>
+//         <input type="number" placeholder="enter second number"></input>
+//         <div>=</div>
+//         <div></div>
+//       </div>
+//       <button onClick={calculateSum} className="border-2 border-black flex ">
+//         calculateSum
+//       </button>
 //     </div>
 //   );
 // }
-
-export default function Home() {
-  function calculateSum() {}
-  return (
-    <>
-      <div className="flex">
-        <input type="number" placeholder="enter first number"></input>
-        <div>-</div>
-        <input type="number" placeholder="enter second number"></input>
-        <div>=</div>
-        <div></div>
-      </div>
-      <button onClick={calculateSum}>calculateSum</button>
-    </>
-  );
-}
